@@ -1,19 +1,12 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
-import { MainContainer } from "../src/styles/App.styled.jsx";
+import { MainContainer } from "../../styles/App.styled";
+import Home from "../../components/Home/Home";
 
 export default function HomePage() {
-  //   const dispatch = useDispatch();
-
-  //   const { error } = useDrink();
-
-  //   useEffect(() => {
-  //     dispatch(getMainPageAllDrinks());
-  //   }, [dispatch]);
   return (
     <>
       <MainContainer>
-        <HomePage />
+        <Home />
       </MainContainer>
     </>
   );
