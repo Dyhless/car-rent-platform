@@ -9,12 +9,12 @@ import {
 } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
 import { advertsReducer } from './adverts/advertsSlice';
-import { makesReducer } from './makes/makesSlice';
+// import { makesReducer } from './makes/makesSlice';
 
 export const store = configureStore({
   reducer: {
     adverts: advertsReducer,
-    makes: makesReducer,
+    // makes: makesReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
