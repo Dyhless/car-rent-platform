@@ -9,10 +9,10 @@ const selectTotalAdvertsData = (state) => state.adverts.total;
 
 export const selectAllAdverts = createSelector(
   [selectAllAdvertsData],
-  (mainPageDrinks) => mainPageDrinks
+  (catalogPageAdverts) => catalogPageAdverts
 );
 
-export const selectDrinkById = (state) => state.adverts.advertById;
+export const selectAdvertById = (state) => state.adverts.advertById;
 
 export const selectIsLoading = createSelector(
   [selectIsLoadingData],
