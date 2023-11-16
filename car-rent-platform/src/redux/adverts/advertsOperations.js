@@ -41,6 +41,19 @@ export const addAdvertToFavorite = createAsyncThunk(
   }
 );
 
+export const removeAdvert = createAsyncThunk(
+  'adverts/favorite/remove/:id',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.delete(`adverts/favorite/remove/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
 export const getFavoriteAll = createAsyncThunk(
   'adverts/favorite/all',
   async ({ page, limit }, thunkAPI) => {
