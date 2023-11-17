@@ -1,16 +1,40 @@
 {
   "files": {
-    "main.css": "/car-rent-platform/static/css/main.f855e6bc.css",
-    "main.js": "/car-rent-platform/static/js/main.d3fccaaa.js",
-    "static/js/787.0dbad8c5.chunk.js": "/car-rent-platform/static/js/787.0dbad8c5.chunk.js",
-    "static/media/logo.svg": "/car-rent-platform/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/car-rent-platform/static/css/main.9b9039db.css",
+    "main.js": "/car-rent-platform/static/js/main.c9a9d648.js",
+    "static/js/812.0212aa49.chunk.js": "/car-rent-platform/static/js/812.0212aa49.chunk.js",
+    "static/js/573.971adfe9.chunk.js": "/car-rent-platform/static/js/573.971adfe9.chunk.js",
+    "static/js/22.fcea1ff9.chunk.js": "/car-rent-platform/static/js/22.fcea1ff9.chunk.js",
+    "static/media/Manrope-Light.eot": "/car-rent-platform/static/media/Manrope-Light.29edcb31b435b91a0d69.eot",
+    "static/media/Manrope-Thin.eot": "/car-rent-platform/static/media/Manrope-Thin.1fe909d3dd3d2713c34e.eot",
+    "static/media/Manrope-Regular.eot": "/car-rent-platform/static/media/Manrope-Regular.0419daf944551412efbf.eot",
+    "static/media/Manrope-Medium.eot": "/car-rent-platform/static/media/Manrope-Medium.0600410565bbf41fb9d4.eot",
+    "static/media/Manrope-Bold.eot": "/car-rent-platform/static/media/Manrope-Bold.208484cc7bf6b952d90a.eot",
+    "static/media/Manrope-Semibold.eot": "/car-rent-platform/static/media/Manrope-Semibold.b34dccc5230dcfa25754.eot",
+    "static/media/Manrope-ExtraBold.eot": "/car-rent-platform/static/media/Manrope-ExtraBold.3097b2795bdcda15769a.eot",
+    "static/media/Manrope-Light.woff": "/car-rent-platform/static/media/Manrope-Light.5893ddfd10c17e34c95b.woff",
+    "static/media/Manrope-Bold.woff": "/car-rent-platform/static/media/Manrope-Bold.b6c4aa0b0b711186d005.woff",
+    "static/media/Manrope-Medium.woff": "/car-rent-platform/static/media/Manrope-Medium.4e55dc20921a95ef83f4.woff",
+    "static/media/Manrope-Regular.woff": "/car-rent-platform/static/media/Manrope-Regular.2046a49b5fa996c43f44.woff",
+    "static/media/Manrope-Semibold.woff": "/car-rent-platform/static/media/Manrope-Semibold.f4e54434d986b1395b3b.woff",
+    "static/media/Manrope-Thin.woff": "/car-rent-platform/static/media/Manrope-Thin.7be1290f01a23cfa7732.woff",
+    "static/media/Manrope-ExtraBold.woff": "/car-rent-platform/static/media/Manrope-ExtraBold.af754df8afbc222b77e8.woff",
+    "static/media/Manrope-Light.woff2": "/car-rent-platform/static/media/Manrope-Light.4fd67bb050c2faa01db8.woff2",
+    "static/media/Manrope-Bold.woff2": "/car-rent-platform/static/media/Manrope-Bold.1fc53579e1040cbf987d.woff2",
+    "static/media/Manrope-Medium.woff2": "/car-rent-platform/static/media/Manrope-Medium.9cccfee0f8d3153ae547.woff2",
+    "static/media/Manrope-Regular.woff2": "/car-rent-platform/static/media/Manrope-Regular.cb78aabfaaf5d95c8665.woff2",
+    "static/media/Manrope-Semibold.woff2": "/car-rent-platform/static/media/Manrope-Semibold.0d44fe833dd4c7229544.woff2",
+    "static/media/Manrope-Thin.woff2": "/car-rent-platform/static/media/Manrope-Thin.270c4d6c4c0046a961da.woff2",
+    "static/media/Manrope-ExtraBold.woff2": "/car-rent-platform/static/media/Manrope-ExtraBold.a90ad203eaed8bfd3323.woff2",
     "index.html": "/car-rent-platform/index.html",
-    "main.f855e6bc.css.map": "/car-rent-platform/static/css/main.f855e6bc.css.map",
-    "main.d3fccaaa.js.map": "/car-rent-platform/static/js/main.d3fccaaa.js.map",
-    "787.0dbad8c5.chunk.js.map": "/car-rent-platform/static/js/787.0dbad8c5.chunk.js.map"
+    "main.9b9039db.css.map": "/car-rent-platform/static/css/main.9b9039db.css.map",
+    "main.c9a9d648.js.map": "/car-rent-platform/static/js/main.c9a9d648.js.map",
+    "812.0212aa49.chunk.js.map": "/car-rent-platform/static/js/812.0212aa49.chunk.js.map",
+    "573.971adfe9.chunk.js.map": "/car-rent-platform/static/js/573.971adfe9.chunk.js.map",
+    "22.fcea1ff9.chunk.js.map": "/car-rent-platform/static/js/22.fcea1ff9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.d3fccaaa.js"
+    "static/css/main.9b9039db.css",
+    "static/js/main.c9a9d648.js"
   ]
 }
