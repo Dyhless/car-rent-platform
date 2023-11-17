@@ -8,18 +8,18 @@ export const advertsApi = createApi({
   tagTypes: ["Advert"],
   endpoints: (builder) => ({
     getAdverts: builder.query({
-      query: () => '/advert',
+      query: () => '/adverts',
       providesTags: ["Advert"],
     }),
     getAdvertById: builder.query({
       // modal
-      query: (id) => `/advert/${id}`,
+      query: (id) => `/adverts/${id}`,
       providesTags: ["Advert"],
     }),
     deleteAdvert: builder.mutation({
       // item
       query: (id) => ({
-        url: `/advert/${id}`,
+        url: `/adverts/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Advert"],
