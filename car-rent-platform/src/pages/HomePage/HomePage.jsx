@@ -1,13 +1,11 @@
-import React from "react";
-import { MainContainer } from "../../styles/App.styled";
-import Home from "../../components/Home/Home";
+import { Text } from "./HomePage.styled";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
     <>
-      <MainContainer>
-        <Home />
-      </MainContainer>
+      <Text>Home Page</Text>
     </>
   );
-}
+};
+
+export default HomePage;

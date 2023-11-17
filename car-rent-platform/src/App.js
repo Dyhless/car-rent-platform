@@ -1,26 +1,20 @@
-import React, { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Loader from './components/Loader';
-
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Layout from "./components/Layout/Layout";
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'));
-const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
+const Catalog = lazy(() => import('./pages/CatalogPage/Catalog'));
+const Favorites = lazy(() => import('./pages/FavoritesPage/Favorites'));
 
 export const App = () => {
-  const isLoading = true; 
 
   return (
-    <Suspense fallback={<Loader />}>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/drinks" element={<CatalogPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-        </Routes>
-      )}
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="catalog" element={<Catalog />} />
+        <Route path="favorites" element={<Favorites />} />
+      </Route>
+    </Routes>
   );
 };
 

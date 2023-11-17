@@ -1,25 +1,22 @@
-import React, { Suspense } from 'react';
+import React from "react";
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
 import './assets/fonts/stylesheet.css';
 import { BrowserRouter } from 'react-router-dom';
-import { store, persistor } from './redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
+import { store } from './redux/store';
+// import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import Loader from './components/Loader';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Suspense fallback={<Loader />}>
       <BrowserRouter basename="car-rent-platform">
         <Provider store={store}>
-          <PersistGate persistor={persistor}>
+          {/* <PersistGate persistor={persistor}> */}
             <App />
-          </PersistGate>
+          {/* </PersistGate> */}
         </Provider>
       </BrowserRouter>
-    </Suspense>
   </React.StrictMode>
 );
 
