@@ -4,7 +4,7 @@ import { LoaderWrapper } from "./Loader.styled";
 const Loader = () => {
   return (
     <LoaderWrapper>
-      <PuffLoader color="#3470FF" size={50} />
+      <PuffLoader color="var(--violet-color)" size={100} />
     </LoaderWrapper>
   );
 };
