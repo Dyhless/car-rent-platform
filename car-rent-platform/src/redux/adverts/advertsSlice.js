@@ -27,4 +27,4 @@ export const advertsApi = createApi({
   }),
 });
 
-export const { useGetAdvertsQuery, useDeleteAdvertQuery, useGetAdvertByIdQuery } = advertsApi;
+export const { useGetAdvertsQuery, useDeleteAdvertMutation, useGetAdvertByIdQuery } = advertsApi;

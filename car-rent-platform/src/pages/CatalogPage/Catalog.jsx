@@ -1,9 +1,10 @@
 import { useGetAdvertsQuery } from "../../redux/adverts/advertsSlice";
 import Loader from "../../components/Loader/Loader";
+import { Description } from "./Catalog.styled";
 
 const Catalog = () => {
   const { data: adverts, error, isLoading } = useGetAdvertsQuery();
-  console.log("adverts :>> ", adverts);
+
   return (
     <>
       {error && <p>Ooops... something went wrong</p>}
@@ -15,7 +16,7 @@ const Catalog = () => {
             adverts.map((advert) => (
               <li key={advert.id}>
                 <img src={advert.img} alt="Car" width={250} />
-                <p>{advert.model}</p>
+                <Description>{advert.model}</Description>
               </li>
             ))
           ) : (
