@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const advertsApi = createApi({
-  reducerPath: 'adverts',
+  reducerPath: "adverts",
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://65562ffd84b36e3a431f4fd4.mockapi.io',
   }),
@@ -13,12 +13,6 @@ export const advertsApi = createApi({
       onQueryError: (error) => {
         console.error('Error fetching adverts:', error);
       },
-    }),
-    
-    getMoreAdverts: builder.query({
-      query: ({ page, perPage }) => `/adverts?page=${page}&perPage=${perPage}`,
-      providesTags: (result, error, { page = 1, perPage = 12 }) =>
-        result ? [{ type: "Advert", id: `${page}-${perPage}` }, "Advert"] : [],
     }),
 
     getAdvertById: builder.query({
@@ -40,5 +34,4 @@ export const {
   useGetAdvertsQuery, 
   useDeleteAdvertMutation, 
   useGetAdvertByIdQuery,
-  useGetMoreAdvertsQuery,  
 } = advertsApi;

@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  useGetAdvertsQuery,
-  useGetMoreAdvertsQuery,
-} from "../../redux/adverts/advertsSlice";
+import { useGetAdvertsQuery } from "../../redux/adverts/advertsSlice";
 import Loader from "../../components/Loader/Loader";
 import {
   Type,
@@ -27,20 +24,18 @@ const Catalog = () => {
     isFetching,
   } = useGetAdvertsQuery({ page, perPage: 12 });
 
-  const { data: moreAdverts, isFetching: isMoreAdvertsFetching } =
-    useGetMoreAdvertsQuery({ page: page + 1, perPage: 12 });
-
-  const allAdverts = [...(adverts || []), ...(moreAdverts || [])];
-
-  const itemsPerPage = 12;
-
-  const isLastPage =
-    !isFetching && (!moreAdverts || moreAdverts.length < itemsPerPage);
+  const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   const truncateString = (str, maxLength) =>
     str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str;
 
-  const handleLoadMore = () => setPage((prevPage) => prevPage + 1);
+  const hasMoreCars = adverts ? adverts.length > 0 : false;
+  const itemsPerPage = 12;
+
+  const isLastPage =
+    !isFetching && (!hasMoreCars || adverts.length < itemsPerPage);
 
   return (
     <>
@@ -50,7 +45,7 @@ const Catalog = () => {
       ) : (
         <>
           <AdvertsList>
-            {allAdverts.slice(0, itemsPerPage).map((advert) => (
+            {adverts.slice(0, 12).map((advert) => (
               <AdvertItem key={advert.id}>
                 <AdvertImg src={advert.img} alt="Car" />
                 <div>
@@ -87,10 +82,10 @@ const Catalog = () => {
             ))}
           </AdvertsList>
           {isFetching && <Loader />}
-          {!isLastPage && (
+          {hasMoreCars && !isLastPage && (
             <LoadMoreBtn
               onClick={handleLoadMore}
-              disabled={isFetching || isMoreAdvertsFetching}
+              disabled={isFetching}
               text="Load more"
             />
           )}
