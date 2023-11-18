@@ -8,7 +8,7 @@ export const advertsApi = createApi({
   tagTypes: ["Advert"],
   endpoints: (builder) => ({
     getAdverts: builder.query({
-      query: (page = 1, perPage = 12) => `/adverts?page=${page}&perPage=${perPage}`,
+      query: (page = 1, limit = 12) => `/adverts?page=${page}&limit=${limit}`,
       providesTags: ["Advert"],
       onQueryError: (error) => {
         console.error('Error fetching adverts:', error);

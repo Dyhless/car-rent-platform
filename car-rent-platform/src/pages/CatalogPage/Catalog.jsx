@@ -23,7 +23,7 @@ const Catalog = () => {
     error,
     isLoading,
     isFetching,
-  } = useGetAdvertsQuery({ page, perPage: 12 });
+  } = useGetAdvertsQuery(page);
 
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
