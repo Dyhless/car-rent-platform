@@ -8,6 +8,8 @@ import {
   AdvertItem,
   AdvertImg,
   CarDetails,
+  MakeModelYear,
+  RentalPrice,
 } from "./Catalog.styled";
 import LoadMoreBtn from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn";
 import LearnMoreBtn from "../../components/Buttons/LearnMoreBtn/LearnMoreBtn";
@@ -44,8 +46,10 @@ const Catalog = () => {
                 <AdvertImg src={advert.img} alt="Car" />
                 <>
                   <Type>
-                    {advert.make} {advert.model}, {advert.year}{" "}
-                    {advert.rentalPrice}
+                    <MakeModelYear>
+                      {advert.make} {advert.model}, {advert.year}
+                    </MakeModelYear>{" "}
+                    <RentalPrice>{advert.rentalPrice}</RentalPrice>
                   </Type>
                   <Description>
                     {advert.address} | {advert.rentalCompany}

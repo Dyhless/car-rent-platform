@@ -25,10 +25,10 @@ const MainContainer = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 160px;
+    width: 1185px;
+    padding-left: 128px;
+    padding-right: 128px;
+    padding-top: 140px;
     padding-bottom: 140px;
     outline: 1px solid tomato;
   }

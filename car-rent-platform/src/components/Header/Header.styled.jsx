@@ -12,13 +12,13 @@ export const HeaderWrap = styled.header`
   flex-direction: column;
   align-items: center;
   padding: 6px 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
   z-index: 10;
   transition: background-color 250ms ease-in-out;
 
   &:hover {
-    background-color: rgba(0, 2, 2, 0.3);
+    background-color: rgba(0, 2, 2, 0.7);
   }
 `;
 
@@ -37,7 +37,7 @@ export const List = styled.ul`
 `;
 
 export const Link = styled(NavLink)`
-  color: var(--light-blue-color);
+  color: var(--header-text-color);
   display: inline-block;
   text-decoration: none;
   padding: 14px;

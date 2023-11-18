@@ -15,15 +15,14 @@ const gradientAnimation = keyframes`
 export const LearnMore = styled.button`
   display: inline-block;
   margin-left: 50%;
-  //   margin-bottom: 28px;
-  padding: 12px, 99px, 12px, 99px;
   transform: translateX(-50%);
   width: 274px;
   height: 44px;
   padding: 14px;
+  line-height: 20px;
   border-radius: 12px;
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   background-color: var(--light-blue-color);
