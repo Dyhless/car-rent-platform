@@ -1,63 +1,121 @@
-// import React, { useEffect } from "react";
-// import ReactDOM from "react-dom";
-// import PropTypes from "prop-types";
+import React, { useEffect } from "react";
+import { ReactComponent as SvgClose } from "../../assets/images/x.svg";
+import { createPortal } from "react-dom";
+import {
+  ModalWindow,
+  Overlay,
+  Wrapper,
+  Title,
+  Span,
+  Item,
+  Description,
+  Info,
+  ConditionItem,
+  ConditionList,
+  ConditionSpan,
+  SvgCloseStyled,
+  CarImg,
+  InfoContainer,
+  TitleContainer,
+  InfoList,
+} from "./Modal.styled";
+import LearnMoreBtn from "../Buttons/LearnMoreBtn/LearnMoreBtn";
 
-// import {
-//   Backdrop,
-//   Container,
-//   CloseButton,
-//   ContentWrapper,
-// } from "./Modal.styled";
-// import { IoCloseOutline } from "react-icons/io5";
+const modalRoot = document.querySelector("#modal-root");
 
-// const Modal = ({ isModalOpened, closeModal, car }) => {
-//   const { model, img, description } = car;
+const Modal = ({ adverts, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.code === "Escape") {
+        onClose();
+      }
+    };
 
-//   const onBackdropClick = (event) => {
-//     if (event.target === event.currentTarget) {
-//       closeModal();
-//     }
-//   };
+    window.addEventListener("keydown", handleKeyDown);
 
-//   useEffect(() => {
-//     const onEscPress = (event) => {
-//       if (isModalOpened && event.key === "Escape") {
-//         closeModal();
-//       }
-//     };
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
 
-//     document.body.style.overflow = isModalOpened ? "hidden" : "auto";
-//     window.addEventListener("keydown", onEscPress);
+  const handleBackdropClick = (event) => {
+    if (event.currentTarget === event.target) {
+      onClose();
+    }
+  };
 
-//     return () => {
-//       window.removeEventListener("keydown", onEscPress);
-//       document.body.style.overflow = "auto";
-//     };
-//   }, [isModalOpened, closeModal]);
+  return createPortal(
+    <Overlay onClick={handleBackdropClick}>
+      <ModalWindow>
+        <Wrapper>
+          <SvgCloseStyled onClick={onClose}>
+            <SvgClose />
+          </SvgCloseStyled>
+          <CarImg src={adverts.img} alt={adverts.make} />
+          <InfoContainer>
+            <TitleContainer>
+              <Title>
+                {adverts.make} <Span>{adverts.model}</Span>, {adverts.year}
+              </Title>
+            </TitleContainer>
+            <InfoList>
+              <Item>{adverts.address.split(",")[1]}</Item>
+              <Item>{adverts.address.split(",")[2]}</Item>
+              <Item>Id: </Item>
+              <Item>Year: {adverts.year}</Item>
+              <Item>Type: {adverts.type}</Item>
+            </InfoList>
+            <InfoList>
+              <Item>Fuel Consumption: {adverts.fuelConsumption}</Item>
+              <Item>Engine Size: {adverts.engineSize}</Item>
+            </InfoList>
+            <Description>{adverts.description}</Description>
+            <Info>Accessories and functionalities:</Info>
+            <InfoList>
+              {adverts.accessories.map((item) => (
+                <Item key={item}>{item}</Item>
+              ))}
+            </InfoList>
+            <InfoList>
+              {adverts.functionalities.map((item) => (
+                <Item key={item}>{item}</Item>
+              ))}
+            </InfoList>
+            <Info>Rental Conditions:</Info>
+            <ConditionList>
+              <ConditionItem>
+                Minimum age:{" "}
+                <ConditionSpan>
+                  {new Date().getFullYear() - adverts.year}
+                </ConditionSpan>
+              </ConditionItem>
+              <ConditionItem>
+                {adverts.rentalConditions.split("\n")[1]}
+              </ConditionItem>
+              <ConditionItem>
+                {adverts.rentalConditions.split("\n")[2]}
+              </ConditionItem>
+              <ConditionItem>
+                Mileage:{" "}
+                <ConditionSpan>
+                  {adverts.mileage.toLocaleString("en-US")}
+                </ConditionSpan>
+              </ConditionItem>
+              <ConditionItem>
+                Price: <ConditionSpan>{adverts.rentalPrice}</ConditionSpan>
+              </ConditionItem>
+            </ConditionList>
+          </InfoContainer>
+          <LearnMoreBtn
+            onClick={() => {
+              window.location.href = "tel:+380730000000";
+            }}
+          />
+        </Wrapper>
+      </ModalWindow>
+    </Overlay>,
+    modalRoot
+  );
+};
 
-//   if (!isModalOpened) {
-//     return null;
-//   }
-//   return ReactDOM.createPortal(
-//     <Backdrop onClick={onBackdropClick}>
-//       <Container>
-//         <CloseButton onClick={closeModal}>
-//           <IoCloseOutline />
-//         </CloseButton>
-//         <ContentWrapper>
-//           <img src={img} alt={model} />
-//           <p>{description}</p>
-//         </ContentWrapper>
-//       </Container>
-//     </Backdrop>,
-//     document.getElementById("modal")
-//   );
-// };
-
-// Modal.propTypes = {
-//   isModalOpened: PropTypes.bool.isRequired,
-//   closeModal: PropTypes.func.isRequired,
-//   children: PropTypes.node,
-// };
-
-// export default Modal;
+export default Modal;

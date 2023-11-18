@@ -9,9 +9,10 @@ const HomePage = () => {
         <BgImg src={BG} />
         <Text>Unlock Adventure: Rent the Perfect Ride for Every Road</Text>
         <RentalCarBtn
-          // onClick={handleLoadMore}
-          // disabled={isFetching || isMoreAdvertsFetching}
           text="Rental car"
+          onClick={() => {
+            window.location.href = "tel:+380730000000";
+          }}
         />
       </Overlay>
     </>

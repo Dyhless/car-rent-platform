@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetAdvertsQuery } from "../../redux/adverts/advertsSlice";
 import Loader from "../../components/Loader/Loader";
 import { AdvertsList } from "./Catalog.styled";
@@ -24,6 +24,10 @@ const Catalog = () => {
 
   const isLastPage =
     !isFetching && (!hasMoreCars || adverts.length < itemsPerPage);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
 
   return (
     <>

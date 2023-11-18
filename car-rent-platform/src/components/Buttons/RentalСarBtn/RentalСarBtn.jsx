@@ -1,10 +1,10 @@
 import { RentalСar } from "./RentalСarBtn.styled";
 
-const RentalСarBtn = ({ onClick, text }) => {
+const RentalСarBtn = ({ onClick }) => {
   return (
     <>
       <RentalСar type="button" onClick={onClick}>
-        {text}
+        Rental Сar
       </RentalСar>
     </>
   );
