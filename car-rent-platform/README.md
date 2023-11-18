@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+**README.md**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Car Rental Application
 
-## Available Scripts
+This is a React application for a car rental company based in Ukraine. The application consists of three pages:
 
-In the project directory, you can run:
+1. **Home Page:**
 
-### `npm start`
+   - General description of the services provided by the company.
+   - Styling and design based on personal preferences.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Catalog Page:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - Displays a catalog of cars with various configurations.
+   - Users can filter cars by brand, hourly rental price, and mileage.
+   - Pagination: Initially renders 12 advertisements, and the rest load on the "Load more" button click.
 
-### `npm test`
+3. **Favorites Page:**
+   - Shows advertisements that the user has added to favorites.
+   - Users can add/remove advertisements to/from favorites by clicking the heart icon.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technical Details
 
-### `npm run build`
+- Implemented a card for renting a car according to the provided layout.
+- The catalog page initially renders 12 advertisements, and the rest can be loaded by clicking the "Load more" button.
+- The heart icon on the advertisement card allows users to add or remove the advertisement from their favorites. The color of the button changes accordingly.
+- User interactions persist even after refreshing the page.
+- Clicking on the "Learn more" button opens a modal window with detailed information about the car and rental conditions.
+- The modal window can be closed by clicking the close button, on the backdrop, or by pressing the "Esc" key.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend (Mockapi)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Created a personal backend for development using the UI service [Mockapi](https://mockapi.io/).
+- Created an "adverts" resource with fields: id, year, make, model, type, img, description, fuelConsumption, engineSize, accessories, functionalities, rentalPrice, rentalCompany, address, rentalConditions, mileage.
+- Used the [adverts.json](https://drive.google.com/file/d/1sDtZQX4awbRiqa5mSagngqKBZeMMRUMO/view) file to populate the collection.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Additional Features
 
-### `npm run eject`
+- Dropdown for filtering cars by brand (makes.json).
+- Dropdown for filtering cars by hourly rental prices (increments of $10).
+- Input group for specifying the mileage range for searching advertisements.
+- Implemented routing using React Router with the following routes:
+  - `/`: Home page with a general description of the company's services.
+  - `/catalog`: Catalog page with a catalog of cars.
+  - `/favorites`: Favorites page with advertisements added by the user.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to Run
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository.
+2. Install dependencies: `npm install`.
+3. Run the application: `npm start`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Criteria for Completion
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Fixed layout in pixels, semantic, and valid HTML.
+- Redux is used for state management.
+- Axios library is used for API requests.
+- Pagination is implemented on the backend.
+- No console errors.
+- Interactive features work according to the technical task.
+- Code is formatted and does not contain unused code.
+- The repository contains a well-described README.md.
+- The project is deployed on GitHub Pages or Netlify.com.
