@@ -7,13 +7,11 @@ export const Type = styled.p`
 `;
 
 export const Description = styled.p`
-  margin-top: 12px;
   margin-bottom: 4px;
   color: var(--grey-color);
 `;
 
 export const CarDetails = styled.p`
-  margin-top: 12px;
   margin-bottom: 28px;
   color: var(--grey-color);
 `;
@@ -23,24 +21,21 @@ export const AdvertsList = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   gap: 50px;
   list-style: none;
-  padding: 0;
+  padding: 20px; /* добавлено */
   margin: 0;
 `;
 
 export const AdvertItem = styled.li`
-  width: 274px:
+  width: 274px;
   height: auto;
   color: var(--black-color);
   display: block;
-  gap: 29px;
+  margin-bottom: 50px; /* добавлено */
 `;
 
 export const AdvertImg = styled.img`
   width: 274px;
-  height: 268px;
-  display: block;
-  max-width: 100%;
-  height: auto;
+  height: 274px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 14px;
 `;

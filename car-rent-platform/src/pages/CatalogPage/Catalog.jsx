@@ -10,6 +10,7 @@ import {
   CarDetails,
 } from "./Catalog.styled";
 import LoadMoreBtn from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn";
+import LearnMoreBtn from "../../components/Buttons/LearnMoreBtn/LearnMoreBtn";
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
@@ -54,6 +55,11 @@ const Catalog = () => {
                     {advert.functionalities[0]}
                   </CarDetails>
                 </>
+                <LearnMoreBtn
+                  // onClick={handleLearnMore}
+                  // disabled={isFetching}
+                  text="Learn more"
+                />
               </AdvertItem>
             ))}
           </AdvertsList>
