@@ -9,7 +9,7 @@ const MainContainer = styled.div`
   padding-right: 20px;
   padding-top: 80px;
   padding-bottom: 80px;
-  outline: 2px solid red;
+  // outline: 2px solid red;
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -21,7 +21,7 @@ const MainContainer = styled.div`
     padding-right: 32px;
     padding-top: 140px;
     padding-bottom: 140px;
-    outline: 1px solid blue;
+    // outline: 1px solid blue;
   }
 
   @media screen and (min-width: 1440px) {
@@ -30,7 +30,7 @@ const MainContainer = styled.div`
     padding-right: 128px;
     padding-top: 140px;
     padding-bottom: 140px;
-    outline: 1px solid tomato;
+    // outline: 1px solid tomato;
   }
 `;
 
