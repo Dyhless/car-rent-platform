@@ -1,11 +1,9 @@
 import { LearnMore } from "./LearnMoreBtn.styled";
 
-const LearnMoreBtn = ({ onClick, text }) => {
+const LearnMoreBtn = ({ openModal }) => {
   return (
     <>
-      <LearnMore type="button" onClick={onClick}>
-        {text}
-      </LearnMore>
+      <LearnMore onClick={openModal}>Learm more</LearnMore>
     </>
   );
 };

@@ -32,14 +32,11 @@ const Catalog = () => {
   const truncateString = (str, maxLength) =>
     str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str;
 
-  // Check if adverts is defined before using slice
-  const displayedAdverts = adverts ? adverts.slice(0, 12) : [];
-
   const hasMoreCars = adverts ? adverts.length > 0 : false;
   const itemsPerPage = 12;
 
   const isLastPage =
-    !isFetching && (!hasMoreCars || (adverts && adverts.length < itemsPerPage));
+    !isFetching && (!hasMoreCars || adverts.length < itemsPerPage);
 
   return (
     <>
@@ -49,7 +46,7 @@ const Catalog = () => {
       ) : (
         <>
           <AdvertsList>
-            {displayedAdverts.map((advert) => (
+            {adverts.slice(0, 12).map((advert) => (
               <AdvertItem key={advert.id}>
                 <AdvertImg src={advert.img} alt="Car" />
                 <div>
