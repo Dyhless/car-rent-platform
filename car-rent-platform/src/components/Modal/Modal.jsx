@@ -107,6 +107,7 @@ const Modal = ({ adverts, onClose }) => {
             </ConditionList>
           </InfoContainer>
           <LearnMoreBtn
+            text="Rental car"
             onClick={() => {
               window.location.href = "tel:+380730000000";
             }}
