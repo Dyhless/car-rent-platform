@@ -30,26 +30,17 @@ const Catalog = () => {
   const { data: moreAdverts, isFetching: isMoreAdvertsFetching } =
     useGetMoreAdvertsQuery({ page: page + 1, perPage: 12 });
 
-  const allAdverts = adverts ? [...adverts] : [];
-  if (moreAdverts) {
-    allAdverts.push(...moreAdverts);
-  }
+  const allAdverts = [...(adverts || []), ...(moreAdverts || [])];
 
   const itemsPerPage = 12;
 
   const isLastPage =
     !isFetching && (!moreAdverts || moreAdverts.length < itemsPerPage);
 
-  const truncateString = (str, maxLength) => {
-    if (str.length > maxLength) {
-      return str.slice(0, maxLength - 3) + "...";
-    }
-    return str;
-  };
+  const truncateString = (str, maxLength) =>
+    str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str;
 
-  const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
+  const handleLoadMore = () => setPage((prevPage) => prevPage + 1);
 
   return (
     <>

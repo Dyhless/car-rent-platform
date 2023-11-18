@@ -10,8 +10,8 @@ export const HeaderWrap = styled.header`
   height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 6px 0;
+  align-items: left;
+  padding-left: 100px;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
   z-index: 10;
