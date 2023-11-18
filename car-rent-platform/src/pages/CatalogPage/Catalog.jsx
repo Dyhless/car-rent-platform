@@ -1,19 +1,9 @@
 import React, { useState } from "react";
 import { useGetAdvertsQuery } from "../../redux/adverts/advertsSlice";
 import Loader from "../../components/Loader/Loader";
-import {
-  Type,
-  Description,
-  AdvertsList,
-  AdvertItem,
-  AdvertImg,
-  CarDetails,
-  MakeModelYear,
-  RentalPrice,
-  Model,
-} from "./Catalog.styled";
+import { AdvertsList } from "./Catalog.styled";
 import LoadMoreBtn from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn";
-import LearnMoreBtn from "../../components/Buttons/LearnMoreBtn/LearnMoreBtn";
+import AdvertItem from "../../components/AdvertItem/AdvertItem";
 
 const Catalog = () => {
   const [page, setPage] = useState(1);
@@ -28,9 +18,6 @@ const Catalog = () => {
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
-
-  const truncateString = (str, maxLength) =>
-    str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str;
 
   const hasMoreCars = adverts ? adverts.length > 0 : false;
   const itemsPerPage = 12;
@@ -47,39 +34,7 @@ const Catalog = () => {
         <>
           <AdvertsList>
             {adverts.slice(0, 12).map((advert) => (
-              <AdvertItem key={advert.id}>
-                <AdvertImg src={advert.img} alt="Car" />
-                <div>
-                  <Type>
-                    <MakeModelYear>
-                      {advert.make} <Model>{advert.model}</Model>, {advert.year}
-                    </MakeModelYear>{" "}
-                    <RentalPrice>{advert.rentalPrice}</RentalPrice>
-                  </Type>
-                  <Description>
-                    {advert.address
-                      .split(",")
-                      .slice(1)
-                      .map((part) => part.trim())
-                      .join(", ")}{" "}
-                    | {advert.rentalCompany}
-                  </Description>
-                  <CarDetails>
-                    {`${truncateString(advert.type, 15)} | ${truncateString(
-                      advert.model,
-                      15
-                    )} | ${truncateString(advert.id, 10)} | ${truncateString(
-                      advert.functionalities[0],
-                      8
-                    )}`}
-                  </CarDetails>
-                  <LearnMoreBtn
-                    // onClick={handleLearnMore}
-                    // disabled={isFetching}
-                    text="Learn more"
-                  />
-                </div>
-              </AdvertItem>
+              <AdvertItem key={advert.id} advert={advert} />
             ))}
           </AdvertsList>
           {isFetching && <Loader />}

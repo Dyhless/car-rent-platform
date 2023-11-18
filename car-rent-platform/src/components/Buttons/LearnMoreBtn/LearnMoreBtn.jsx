@@ -3,7 +3,7 @@ import { LearnMore } from "./LearnMoreBtn.styled";
 const LearnMoreBtn = ({ openModal }) => {
   return (
     <>
-      <LearnMore onClick={openModal}>Learm more</LearnMore>
+      <LearnMore onClick={openModal}>Learn more</LearnMore>
     </>
   );
 };
