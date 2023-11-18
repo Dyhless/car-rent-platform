@@ -7,12 +7,12 @@ export const Type = styled.p`
   margin-bottom: 8px;
 `;
 
-export const MakeModelYear = styled.p`
+export const MakeModelYear = styled.span`
   text-align: left;
   padding-right: 87px;
 `;
 
-export const RentalPrice = styled.p`
+export const RentalPrice = styled.span`
   text-align: right;
 `;
 
@@ -51,9 +51,11 @@ export const AdvertsList = styled.ul`
 
 export const AdvertItem = styled.li`
   width: 274px;
-  height: auto;
+  height: 426px;
   color: var(--black-color);
-  display: block;
+  display: flex; /* Используем flex-контейнер */
+  flex-direction: column; /* Располагаем элементы в колонку */
+  align-items: center; /* Выравниваем элементы по центру по горизонтали */
   margin-bottom: 50px;
 `;
 

@@ -8,16 +8,25 @@ export const advertsApi = createApi({
   tagTypes: ["Advert"],
   endpoints: (builder) => ({
     getAdverts: builder.query({
-      query: () => '/adverts',
+      query: (page = 1, perPage = 12) => `/adverts?page=${page}&perPage=${perPage}`,
       providesTags: ["Advert"],
+      onQueryError: (error) => {
+        console.error('Error fetching adverts:', error);
+      },
     }),
+    
+    getMoreAdverts: builder.query({
+      query: ({ page, perPage }) => `/adverts?page=${page}&perPage=${perPage}`,
+      providesTags: (result, error, { page = 1, perPage = 12 }) =>
+        result ? [{ type: "Advert", id: `${page}-${perPage}` }, "Advert"] : [],
+    }),
+
     getAdvertById: builder.query({
-      // modal
       query: (id) => `/adverts/${id}`,
       providesTags: ["Advert"],
     }),
+
     deleteAdvert: builder.mutation({
-      // item
       query: (id) => ({
         url: `/adverts/${id}`,
         method: "DELETE",
@@ -27,4 +36,9 @@ export const advertsApi = createApi({
   }),
 });
 
-export const { useGetAdvertsQuery, useDeleteAdvertMutation, useGetAdvertByIdQuery } = advertsApi;
+export const { 
+  useGetAdvertsQuery, 
+  useDeleteAdvertMutation, 
+  useGetAdvertByIdQuery,
+  useGetMoreAdvertsQuery,  
+} = advertsApi;
