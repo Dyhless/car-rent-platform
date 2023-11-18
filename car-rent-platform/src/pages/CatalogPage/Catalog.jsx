@@ -10,6 +10,7 @@ import {
   CarDetails,
   MakeModelYear,
   RentalPrice,
+  Model,
 } from "./Catalog.styled";
 import LoadMoreBtn from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn";
 import LearnMoreBtn from "../../components/Buttons/LearnMoreBtn/LearnMoreBtn";
@@ -31,11 +32,14 @@ const Catalog = () => {
   const truncateString = (str, maxLength) =>
     str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str;
 
+  // Check if adverts is defined before using slice
+  const displayedAdverts = adverts ? adverts.slice(0, 12) : [];
+
   const hasMoreCars = adverts ? adverts.length > 0 : false;
   const itemsPerPage = 12;
 
   const isLastPage =
-    !isFetching && (!hasMoreCars || adverts.length < itemsPerPage);
+    !isFetching && (!hasMoreCars || (adverts && adverts.length < itemsPerPage));
 
   return (
     <>
@@ -45,13 +49,13 @@ const Catalog = () => {
       ) : (
         <>
           <AdvertsList>
-            {adverts.slice(0, 12).map((advert) => (
+            {displayedAdverts.map((advert) => (
               <AdvertItem key={advert.id}>
                 <AdvertImg src={advert.img} alt="Car" />
                 <div>
                   <Type>
                     <MakeModelYear>
-                      {advert.make} {advert.model}, {advert.year}
+                      {advert.make} <Model>{advert.model}</Model>, {advert.year}
                     </MakeModelYear>{" "}
                     <RentalPrice>{advert.rentalPrice}</RentalPrice>
                   </Type>

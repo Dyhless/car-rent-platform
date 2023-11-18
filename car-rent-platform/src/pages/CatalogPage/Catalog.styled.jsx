@@ -12,6 +12,10 @@ export const MakeModelYear = styled.span`
   padding-right: 87px;
 `;
 
+export const Model = styled.span`
+  color: var(--dark-blue-color); /* Add this line for color styling */
+`;
+
 export const RentalPrice = styled.span`
   text-align: right;
 `;
