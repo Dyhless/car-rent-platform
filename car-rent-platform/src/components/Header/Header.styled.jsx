@@ -7,12 +7,13 @@ export const HeaderWrap = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  height: 30px;
+  height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 6px 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.7);
   z-index: 10;
   transition: background-color 250ms ease-in-out;
 
@@ -24,9 +25,15 @@ export const HeaderWrap = styled.header`
 export const List = styled.ul`
   list-style-type: none;
   display: flex;
-  gap: 30px;
-  margin-right: auto;
-  margin-left: auto;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    gap: 2px;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -40,6 +47,6 @@ export const Link = styled(NavLink)`
     border-color ${transition};
 
   &:hover {
-    color: var(--violet-color);
+    color: var(--white-color);
   }
 `;

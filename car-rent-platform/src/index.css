@@ -8,11 +8,13 @@
   --light-blue-color: #3470ff;
   --dark-blue-color: #0b44cd;
   --violet-color: #450bcd;
+  --hero-text-color: #524b18;
 
   --transition: 500ms ease-in;
 }
 
 body {
+  overflow: hidden;
   font-family: "Manrope", sans-serif;
   font-size: 14px;
   font-weight: 400;
