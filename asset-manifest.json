@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/car-rent-platform/static/css/main.9e31802f.css",
-    "main.js": "/car-rent-platform/static/js/main.25301db8.js",
-    "static/js/205.a62fbe17.chunk.js": "/car-rent-platform/static/js/205.a62fbe17.chunk.js",
-    "static/js/976.3b0b9fb7.chunk.js": "/car-rent-platform/static/js/976.3b0b9fb7.chunk.js",
+    "main.css": "/car-rent-platform/static/css/main.467be82d.css",
+    "main.js": "/car-rent-platform/static/js/main.e2f5c1a4.js",
+    "static/js/262.f8545fb8.chunk.js": "/car-rent-platform/static/js/262.f8545fb8.chunk.js",
+    "static/js/976.47098f22.chunk.js": "/car-rent-platform/static/js/976.47098f22.chunk.js",
     "static/js/22.fcea1ff9.chunk.js": "/car-rent-platform/static/js/22.fcea1ff9.chunk.js",
     "static/media/BG.jpg": "/car-rent-platform/static/media/BG.c03119217b64a1bca866.jpg",
     "static/media/Manrope-Light.eot": "/car-rent-platform/static/media/Manrope-Light.29edcb31b435b91a0d69.eot",
@@ -28,14 +28,14 @@
     "static/media/Manrope-Thin.woff2": "/car-rent-platform/static/media/Manrope-Thin.270c4d6c4c0046a961da.woff2",
     "static/media/Manrope-ExtraBold.woff2": "/car-rent-platform/static/media/Manrope-ExtraBold.a90ad203eaed8bfd3323.woff2",
     "index.html": "/car-rent-platform/index.html",
-    "main.9e31802f.css.map": "/car-rent-platform/static/css/main.9e31802f.css.map",
-    "main.25301db8.js.map": "/car-rent-platform/static/js/main.25301db8.js.map",
-    "205.a62fbe17.chunk.js.map": "/car-rent-platform/static/js/205.a62fbe17.chunk.js.map",
-    "976.3b0b9fb7.chunk.js.map": "/car-rent-platform/static/js/976.3b0b9fb7.chunk.js.map",
+    "main.467be82d.css.map": "/car-rent-platform/static/css/main.467be82d.css.map",
+    "main.e2f5c1a4.js.map": "/car-rent-platform/static/js/main.e2f5c1a4.js.map",
+    "262.f8545fb8.chunk.js.map": "/car-rent-platform/static/js/262.f8545fb8.chunk.js.map",
+    "976.47098f22.chunk.js.map": "/car-rent-platform/static/js/976.47098f22.chunk.js.map",
     "22.fcea1ff9.chunk.js.map": "/car-rent-platform/static/js/22.fcea1ff9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e31802f.css",
-    "static/js/main.25301db8.js"
+    "static/css/main.467be82d.css",
+    "static/js/main.e2f5c1a4.js"
   ]
 }
