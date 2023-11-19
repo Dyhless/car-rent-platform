@@ -14,7 +14,7 @@ const gradientAnimation = keyframes`
 
 export const LearnMore = styled.button`
   display: inline-block;
-  margin-left: 50%;
+  position: absolute;
   transform: translateX(-50%);
   width: 274px;
   height: 44px;

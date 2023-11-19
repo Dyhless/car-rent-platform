@@ -4,10 +4,15 @@ export const AdvertItemWrapper = styled.li`
   width: 274px;
   height: 426px;
   color: var(--black-color);
-  display: flex; /* Используем flex-контейнер */
-  flex-direction: column; /* Располагаем элементы в колонку */
-  align-items: center; /* Выравниваем элементы по центру по горизонтали */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 50px;
+  margin-top: auto;
+`;
+
+export const LearnMoreWrapper = styled.div`
+  margin-top: auto;
 `;
 
 export const Type = styled.p`
@@ -23,7 +28,7 @@ export const MakeModelYear = styled.span`
 `;
 
 export const Model = styled.span`
-  color: var(--dark-blue-color); /* Add this line for color styling */
+  color: var(--dark-blue-color);
 `;
 
 export const RentalPrice = styled.span`
@@ -45,4 +50,6 @@ export const AdvertImg = styled.img`
   height: 274px;
   object-fit: cover;
   border-radius: 14px;
+  min-height: 274px;
+  max-height: 274px;
 `;

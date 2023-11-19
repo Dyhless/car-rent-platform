@@ -14,9 +14,9 @@ export const Overlay = styled.div`
 `;
 
 export const ModalWindow = styled.div`
-  margin-top: 150px;
+  margin-top: 10px;
   width: 541px;
-  height: 752px;
+  height: 680px;
   border-radius: 24px;
   background-color: #fff;
 `;
@@ -33,8 +33,8 @@ export const SvgCloseStyled = styled.button`
   position: absolute;
   background-color: transparent;
   border: none;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 5px;
   cursor: pointer;
 `;
 
@@ -47,8 +47,8 @@ export const CarImg = styled.img`
 `;
 
 export const InfoContainer = styled.div`
-  margin-top: 14px;
-  margin-bottom: 24px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 `;
 
 export const TitleContainer = styled.div`
@@ -109,7 +109,7 @@ export const ConditionList = styled.ul`
   gap: 8px;
 
   font-size: 12px;
-  letter-spacing: -0.24px;
+  letter-spacing: -0.14px;
 
   @media screen and (min-width: 768px) {
     width: 461px;
@@ -126,4 +126,10 @@ export const ConditionItem = styled.li`
 export const ConditionSpan = styled.span`
   color: #3470ff;
   font-weight: 600;
+`;
+
+export const RentCarBtn = styled.div`
+  position: absolute;
+  margin-left: 23%;
+  }
 `;

@@ -18,6 +18,7 @@ import {
   InfoContainer,
   TitleContainer,
   InfoList,
+  RentCarBtn,
 } from "./Modal.styled";
 import LearnMoreBtn from "../Buttons/LearnMoreBtn/LearnMoreBtn";
 
@@ -106,12 +107,14 @@ const Modal = ({ adverts, onClose }) => {
               </ConditionItem>
             </ConditionList>
           </InfoContainer>
-          <LearnMoreBtn
-            text="Rental car"
-            onClick={() => {
-              window.location.href = "tel:+380730000000";
-            }}
-          />
+          <RentCarBtn>
+            <LearnMoreBtn
+              text="Rental car"
+              onClick={() => {
+                window.location.href = "tel:+380730000000";
+              }}
+            />
+          </RentCarBtn>
         </Wrapper>
       </ModalWindow>
     </Overlay>,

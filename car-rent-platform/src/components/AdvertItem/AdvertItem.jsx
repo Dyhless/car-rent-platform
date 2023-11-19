@@ -9,6 +9,7 @@ import {
   Description,
   CarDetails,
   AdvertImg,
+  LearnMoreWrapper,
 } from "./AdvertItem.styled";
 import LearnMoreBtn from "../../components/Buttons/LearnMoreBtn/LearnMoreBtn";
 import Modal from "../Modal/Modal";
@@ -65,9 +66,11 @@ const AdvertItem = ({ advert }) => {
           id={advert.id}
           functionality={advert.functionalities}
         />
+      </div>
+      <LearnMoreWrapper>
         <LearnMoreBtn onClick={handleOpen} text="Learn more" />
         {open && <Modal onClose={handleClose} adverts={advert} />}
-      </div>
+      </LearnMoreWrapper>
     </AdvertItemWrapper>
   );
 };
