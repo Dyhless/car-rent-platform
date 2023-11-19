@@ -1,9 +1,11 @@
 import { HeaderWrap, Link, List } from "./Header.styled";
+import LogoHeader from "./LogoHeader";
 
 const Header = () => {
   return (
     <HeaderWrap>
       <List>
+        <LogoHeader />
         <li>
           <Link to="/">Home</Link>
         </li>

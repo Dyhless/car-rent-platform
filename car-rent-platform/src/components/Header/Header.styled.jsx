@@ -48,5 +48,7 @@ export const Link = styled(NavLink)`
 
   &:hover {
     color: var(--white-color);
+    transform: scale(1.2);
+    transition: 0.5s;
   }
 `;
