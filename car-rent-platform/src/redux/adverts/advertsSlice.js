@@ -10,15 +10,19 @@ export const advertsApi = createApi({
     getAdverts: builder.query({
       query: (page = 1, limit = 12) => `/adverts?page=${page}&limit=${limit}`,
       providesTags: ["Advert"],
-        onQueryError: (error) => {
-          console.error('Error fetching adverts:', error);
-        },
-      }),
+      onQueryError: (error) => {
+        console.error('Error fetching adverts:', error);
+      },
     }),
+    getFilteredAdverts: builder.query({
+      query: ({ make, rentalPrice, mileageFrom, mileageTo }) =>
+        `/adverts?make=${make}&rentalPrice=${rentalPrice}&mileageFrom=${mileageFrom}&mileageTo=${mileageTo}`,
+      providesTags: ["Advert"],
+      onQueryError: (error) => {
+        console.error('Error fetching filtered adverts:', error);
+      },
+    }),
+  }),
 });
 
-export const { 
-  useGetAdvertsQuery, 
-  useDeleteAdvertMutation, 
-  useGetAdvertByIdQuery,
-} = advertsApi;
+export const { useGetAdvertsQuery, useGetFilteredAdvertsQuery } = advertsApi;

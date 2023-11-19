@@ -75,9 +75,11 @@ const AdvertItem = ({ advert }) => {
       </IconWrapper>
       <div>
         <Type>
-          <MakeModelYear>
-            {advert.make} <Model>{advert.model}</Model>, {advert.year}
-          </MakeModelYear>{" "}
+          {advert.make && (
+            <MakeModelYear>
+              {advert.make} <Model>{advert.model}</Model>, {advert.year}
+            </MakeModelYear>
+          )}{" "}
           <RentalPrice>{advert.rentalPrice}</RentalPrice>
         </Type>
         <AddressDetails
