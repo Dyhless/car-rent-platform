@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcar_rent_platform=self.webpackChunkcar_rent_platform||[]).push([[22],{22:(n,t,e)=>{e.r(t),e.d(t,{default:()=>p});var r,a=e(168);const s=e(867).ZP.p(r||(r=(0,a.Z)(["\n  color: white;\n  font-size: 24px;\n  width: 360px;\n  position: absolute;\n  top: 220px;\n  left: 80px;\n"])));var o=e(184);const p=()=>(0,o.jsx)(o.Fragment,{children:(0,o.jsx)(s,{children:"Favorites Page"})})}}]);
-//# sourceMappingURL=22.fcea1ff9.chunk.js.map
