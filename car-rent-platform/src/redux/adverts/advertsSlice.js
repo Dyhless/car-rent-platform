@@ -10,24 +10,11 @@ export const advertsApi = createApi({
     getAdverts: builder.query({
       query: (page = 1, limit = 12) => `/adverts?page=${page}&limit=${limit}`,
       providesTags: ["Advert"],
-      onQueryError: (error) => {
-        console.error('Error fetching adverts:', error);
-      },
-    }),
-
-    getAdvertById: builder.query({
-      query: (id) => `/adverts/${id}`,
-      providesTags: ["Advert"],
-    }),
-
-    deleteAdvert: builder.mutation({
-      query: (id) => ({
-        url: `/adverts/${id}`,
-        method: "DELETE",
+        onQueryError: (error) => {
+          console.error('Error fetching adverts:', error);
+        },
       }),
-      invalidatesTags: ["Advert"],
     }),
-  }),
 });
 
 export const { 
