@@ -28,13 +28,6 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-  // reducer: {
-  //   [advertsApi.reducerPath]: advertsApi.reducer,
-  // },
-  // middleware: getDefaultMiddleware => [
-  //   ...getDefaultMiddleware(),
-  //   advertsApi.middleware,
-  // ],
     reducer: persistedReducer,
 
   middleware: (getDefaultMiddleware) =>

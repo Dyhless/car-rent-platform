@@ -8,3 +8,21 @@ export const Text = styled.p`
   top: 220px;
   left: 80px;
 `;
+
+export const FavoritesList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 22px;
+  list-style: none;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0px;
+    margin: 0;
+  }
+`;

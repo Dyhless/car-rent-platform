@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   AdvertItemWrapper,
   Type,
@@ -10,9 +12,16 @@ import {
   CarDetails,
   AdvertImg,
   LearnMoreWrapper,
+  RegularIcon,
+  IconWrapper,
+  FavoriteIcon,
 } from "./AdvertItem.styled";
 import LearnMoreBtn from "../../components/Buttons/LearnMoreBtn/LearnMoreBtn";
 import Modal from "../Modal/Modal";
+import {
+  addFavorite,
+  removeFavorite,
+} from "../../redux/adverts/favoritesSlice";
 
 const truncateString = (str, maxLength) =>
   str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str;
@@ -38,6 +47,18 @@ const CarDetailsInfo = ({ type, model, id, functionality }) => (
 );
 
 const AdvertItem = ({ advert }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const isCarFavorite = favorites.some((item) => item.id === advert.id);
+
+  const addToFavorite = () => {
+    if (isCarFavorite) {
+      dispatch(removeFavorite(advert));
+    } else {
+      dispatch(addFavorite(advert));
+    }
+  };
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -49,6 +70,9 @@ const AdvertItem = ({ advert }) => {
   return (
     <AdvertItemWrapper>
       <AdvertImg src={advert.img} alt="Car" />
+      <IconWrapper onClick={addToFavorite}>
+        {isCarFavorite ? <FavoriteIcon /> : <RegularIcon />}
+      </IconWrapper>
       <div>
         <Type>
           <MakeModelYear>

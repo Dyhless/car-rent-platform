@@ -1,6 +1,34 @@
 import styled from "styled-components";
+import { BiHeart, BiSolidHeart } from "react-icons/bi";
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+`;
+
+export const RegularIcon = styled(BiHeart)`
+  fill: var(--white-color);
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+`;
+
+export const FavoriteIcon = styled(BiSolidHeart)`
+  color: var(--dark-blue-color);
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+`;
 
 export const AdvertItemWrapper = styled.li`
+  position: relative;
   width: 274px;
   height: 426px;
   color: var(--black-color);

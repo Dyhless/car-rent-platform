@@ -16,7 +16,7 @@ export const Overlay = styled.div`
 export const ModalWindow = styled.div`
   margin-top: 10px;
   width: 541px;
-  height: 680px;
+  height: 752px;
   border-radius: 24px;
   background-color: #fff;
 `;
@@ -71,9 +71,9 @@ export const Span = styled.span`
 
 export const InfoList = styled.ul`
   display: flex;
-
   flex-wrap: wrap;
-  row-gap: 4px;
+  // padding-top: 5px;
+  // row-gap: 4px;
 
   :not(:last-child) {
     border-right: 1px solid rgba(18, 20, 23, 0.1);
@@ -130,6 +130,7 @@ export const ConditionSpan = styled.span`
 
 export const RentCarBtn = styled.div`
   position: absolute;
-  margin-left: 23%;
+  width: 168px;
+  margin-left: 25%;
   }
 `;
