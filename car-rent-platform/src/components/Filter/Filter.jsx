@@ -81,7 +81,9 @@ export default function Filter({ makes, prices, onFilterChange }) {
           placeholder="Enter the text"
           value={selectedMake}
           isClearable={true}
-          onChange={(selectedOption) => setSelectedMake(selectedOption)}
+          onChange={(selectedOption) =>
+            setSelectedMake(selectedOption ? selectedOption.value : "")
+          }
           options={makeOptions}
           styles={{
             control: (styles) => ({
