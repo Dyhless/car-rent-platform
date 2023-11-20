@@ -22,6 +22,7 @@ export default function Filter({ makes, prices, onFilterChange }) {
   const [maxValue, setMaxValue] = useState("");
 
   const makeOptions = makes.map((make) => ({ value: make, label: make }));
+  console.log(makeOptions);
 
   const priceRangeOptions = [];
   for (let i = 30; i <= 500; i += 10) {
@@ -159,7 +160,6 @@ export default function Filter({ makes, prices, onFilterChange }) {
           }}
         />
       </SelectContainer>
-
       <Form>
         <Label>Car mileage / km</Label>
         <InputContainer>
