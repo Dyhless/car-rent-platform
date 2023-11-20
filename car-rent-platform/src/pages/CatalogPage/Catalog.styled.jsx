@@ -22,3 +22,11 @@ export const AdvertsList = styled.ul`
     margin: 0;
   }
 `;
+
+export const WrapperFilter = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 128px;
+  padding-right: 128px;
+`;

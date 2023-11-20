@@ -1,3 +1,5 @@
+// baseUrl: 'https://65562ffd84b36e3a431f4fd4.mockapi.io',
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const advertsApi = createApi({
@@ -14,15 +16,12 @@ export const advertsApi = createApi({
         console.error('Error fetching adverts:', error);
       },
     }),
-    getFilteredAdverts: builder.query({
-      query: ({ make, rentalPrice, mileageFrom, mileageTo }) =>
-        `/adverts?make=${make}&rentalPrice=${rentalPrice}&mileageFrom=${mileageFrom}&mileageTo=${mileageTo}`,
+    getAllAdverts: builder.query({
+      query: () => "/advert",
       providesTags: ["Advert"],
-      onQueryError: (error) => {
-        console.error('Error fetching filtered adverts:', error);
-      },
     }),
   }),
 });
 
-export const { useGetAdvertsQuery, useGetFilteredAdvertsQuery } = advertsApi;
+export const { useGetAdvertsQuery, useGetAllAdvertsQuery } = advertsApi;
+
