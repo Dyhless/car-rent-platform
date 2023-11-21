@@ -39,7 +39,7 @@ const Catalog = () => {
     if (page) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [page]);
+  }, [page, filter, allAdverts]);
 
   const filteredCars =
     (allAdverts || []).filter((advert) => {
@@ -55,8 +55,23 @@ const Catalog = () => {
           parseFloat(advert.rentalPrice.replace("$", "")) <
             parseFloat(filter.rentalPrice) + 10);
 
-      return makeCondition && priceCondition;
+      const mileageMinCondition =
+        !filter.mileageMin ||
+        parseFloat(advert.mileage) >= parseFloat(filter.mileageMin);
+
+      const mileageMaxCondition =
+        !filter.mileageMax ||
+        parseFloat(advert.mileage) <= parseFloat(filter.mileageMax);
+
+      return (
+        makeCondition &&
+        priceCondition &&
+        mileageMinCondition &&
+        mileageMaxCondition
+      );
     }) || [];
+
+  console.log("Filtered Cars:", filteredCars);
 
   const totalFilteredCars = filteredCars.length;
 

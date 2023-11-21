@@ -23,7 +23,8 @@ const Filter = ({ makes, prices, onFilterChange }) => {
 
   const [selectedPriceStep, setSelectedPriceStep] = useState(null);
   const [selectedPriceLabel, setSelectedPriceLabel] = useState("");
-
+  const [mileageFrom, setMileageFrom] = useState("");
+  const [mileageTo, setMileageTo] = useState("");
   const makeOptions = makes.map((make) => ({ value: make, label: make }));
 
   const makePriceOptions = [];
@@ -41,6 +42,8 @@ const Filter = ({ makes, prices, onFilterChange }) => {
     const newFilters = {
       make: selectedMake,
       rentalPrice: selectedPriceStep,
+      mileageMin: mileageFrom,
+      mileageMax: mileageTo,
     };
 
     onFilterChange(newFilters);
@@ -50,10 +53,14 @@ const Filter = ({ makes, prices, onFilterChange }) => {
     const newFilters = {
       make: null,
       rentalPrice: null,
+      mileageMin: null,
+      mileageMax: null,
     };
 
     setSelectedPriceStep(null);
     setSelectedPriceLabel("");
+    setMileageFrom("");
+    setMileageTo("");
 
     dispatch(selectMake(null));
     onFilterChange(newFilters);
@@ -149,9 +156,18 @@ const Filter = ({ makes, prices, onFilterChange }) => {
       <CarMileageWrap>
         <Label htmlFor="mileage">Car mileage / km</Label>
         <InputWrap>
-          <InputFrom type="text" id="mileage" />
+          <InputFrom
+            type="text"
+            id="mileage"
+            value={mileageFrom}
+            onChange={(e) => setMileageFrom(e.target.value)}
+          />
           <SpanFrom>From</SpanFrom>
-          <InputTo type="text" />
+          <InputTo
+            type="text"
+            value={mileageTo}
+            onChange={(e) => setMileageTo(e.target.value)}
+          />
           <SpanTo>To</SpanTo>
         </InputWrap>
       </CarMileageWrap>
