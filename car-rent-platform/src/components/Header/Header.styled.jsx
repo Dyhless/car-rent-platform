@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+
 const transition = "300ms cubic-bezier(0.46, 0.03, 0.52, 0.96)";
 
 export const HeaderWrap = styled.header`
@@ -20,19 +21,32 @@ export const HeaderWrap = styled.header`
   &:hover {
     background-color: rgba(0, 2, 2, 0.7);
   }
+
+  @media screen and (max-width: 768px) {
+    padding-left: 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 
 export const List = styled.ul`
   list-style-type: none;
   display: flex;
-  gap: 10px;
   margin: 0;
   padding: 0;
+  height: auto;
+  flex-direction: column;
 
-  @media screen and (max-width: 768px) {
-    height: auto;
-    flex-direction: column;
-    gap: 2px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 10px;
   }
 `;
 
@@ -40,7 +54,6 @@ export const Link = styled(NavLink)`
   color: var(--header-text-color);
   display: inline-block;
   text-decoration: none;
-  padding: 14px;
   font-weight: 600;
   font-size: 22px;
   transition: color ${transition}, background-color ${transition},
@@ -50,5 +63,13 @@ export const Link = styled(NavLink)`
     color: var(--white-color);
     transform: scale(1.2);
     transition: 0.5s;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 14px;
   }
 `;

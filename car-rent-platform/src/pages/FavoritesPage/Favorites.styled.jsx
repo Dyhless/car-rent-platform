@@ -14,9 +14,11 @@ export const FavoritesList = styled.ul`
   grid-template-columns: repeat(1, 1fr);
   gap: 22px;
   list-style: none;
+  padding-top: 80px;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    padding-top: 20px;
     padding-left: 40px;
   }
 

@@ -1,11 +1,28 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: grid;
   align-items: flex-end;
+  grid-template-columns: repeat(1, 1fr);
   justify-content: center;
-  margin-bottom: 40px;
   gap: 18px;
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 220px;
+  }
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 40px;
+    width: 500px;
+    justify-content: left;
+  }
 `;
 
 export const SelectWrapper = styled.div`
@@ -14,10 +31,11 @@ export const SelectWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: 14px;
-  font-weight: 500;
-  color: #121417;
+  display: block;
   margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #121417;
 `;
 
 export const CarMileageWrap = styled.form`

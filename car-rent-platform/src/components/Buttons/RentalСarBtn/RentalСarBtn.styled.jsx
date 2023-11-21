@@ -13,8 +13,6 @@ const gradientAnimation = keyframes`
 `;
 
 export const RentalСar = styled.button`
-  display: inline-block;
-  position: absolute;
   width: 274px;
   height: 44px;
   padding: 14px;
@@ -27,10 +25,9 @@ export const RentalСar = styled.button`
   background-color: #fa8531;
   color: #fff;
   animation: ${gradientAnimation} 2s linear infinite alternate-reverse;
-
-  margin-top: 10%;
-  margin-left: 13%;
   transform: translateX(-50%);
+  margin-left: 50%;
+  position: relative;
 
   &:hover,
   &:focus {

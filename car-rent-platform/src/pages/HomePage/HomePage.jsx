@@ -7,7 +7,7 @@ const HomePage = () => {
     <>
       <Overlay>
         <BgImg src={BG} />
-        <Text>Unlock Adventure: Rent the Perfect Ride for Every Road</Text>
+        <Text>DriveHubRentals</Text>
         <RentalCarBtn
           text="Rental car"
           onClick={() => {
