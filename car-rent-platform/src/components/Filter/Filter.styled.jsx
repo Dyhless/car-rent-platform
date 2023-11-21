@@ -4,9 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
+  margin-bottom: 40px;
   gap: 18px;
 `;
 
@@ -32,52 +30,38 @@ export const InputWrap = styled.div`
   position: relative;
 `;
 
-export const InputFrom = styled.input`
-  display: block;
-  width: 163px;
-  height: 48px;
-  border: none;
-  border-right: 1px solid rgba(138, 138, 137, 0.2);
-  background-color: #f7f7fb;
-  border-radius: 14px 0 0 14px;
-  padding-left: 0;
-  text-indent: 70px;
-  color: #121417;
-
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.11;
-
-  &:focus {
-    outline-color: rgba(138, 138, 137, 0.2);
-  }
-`;
-
-export const InputTo = styled.input`
+const inputStyles = `
   display: block;
   width: 162px;
   height: 48px;
   border: none;
   background-color: #f7f7fb;
-  border-radius: 0 14px 14px 0;
   padding-left: 0;
-  text-indent: 45px;
-
   color: #121417;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
-
   &:focus {
     outline-color: rgba(138, 138, 137, 0.2);
   }
 `;
 
-export const SpanFrom = styled.span`
+export const InputFrom = styled.input`
+  ${inputStyles}
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  border-radius: 14px 0 0 14px;
+  text-indent: 70px;
+`;
+
+export const InputTo = styled.input`
+  ${inputStyles}
+  border-radius: 0 14px 14px 0;
+  text-indent: 45px;
+`;
+
+const spanStyles = `
   position: absolute;
   display: block;
-  left: 24px;
-  top: 14px;
   z-index: 9;
   color: #121417;
   font-size: 18px;
@@ -85,14 +69,14 @@ export const SpanFrom = styled.span`
   line-height: 1.11;
 `;
 
+export const SpanFrom = styled.span`
+  ${spanStyles}
+  left: 24px;
+  top: 14px;
+`;
+
 export const SpanTo = styled.span`
-  position: absolute;
-  display: block;
+  ${spanStyles}
   left: 180px;
   top: 14px;
-  z-index: 9;
-  color: #121417;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.11;
 `;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 import LoadMoreBtn from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn";
 import { AdvertsList } from "./Catalog.styled";
@@ -71,13 +71,6 @@ const Catalog = () => {
 
   if (error) {
     return <NotFound />;
-  }
-
-  if (!slicedFilteredCars || slicedFilteredCars.length === 0) {
-    toast.error(`No cars found`, {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1500,
-    });
   }
 
   const hasMoreCars = adverts ? adverts.length > 0 : false;
