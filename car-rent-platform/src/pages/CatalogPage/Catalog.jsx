@@ -71,8 +71,6 @@ const Catalog = () => {
       );
     }) || [];
 
-  console.log("Filtered Cars:", filteredCars);
-
   const totalFilteredCars = filteredCars.length;
 
   const slicedFilteredCars = filteredCars.slice(
