@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const LoadMore = styled.button`
-  display: inline-block;
-  margin-left: 50%;
-  margin-top: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   margin-bottom: 150px;
   color: #3470ff;
   font-family: "Manrope";

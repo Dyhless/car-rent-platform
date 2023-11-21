@@ -19,7 +19,7 @@ const MainContainer = styled.div`
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
-    padding-top: 140px;
+    padding-top: 80px;
     padding-bottom: 140px;
     // outline: 1px solid blue;
   }
@@ -28,7 +28,7 @@ const MainContainer = styled.div`
     width: 1185px;
     padding-left: 128px;
     padding-right: 128px;
-    padding-top: 140px;
+    padding-top: 120px;
     padding-bottom: 140px;
     // outline: 1px solid tomato;
   }

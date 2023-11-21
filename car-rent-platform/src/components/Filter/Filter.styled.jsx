@@ -16,7 +16,7 @@ export const SelectWrapper = styled.div`
 export const Label = styled.label`
   font-size: 14px;
   font-weight: 500;
-  color: #8a8a89;
+  color: #121417;
   margin-bottom: 8px;
 `;
 
