@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/car-rent-platform/static/css/main.c741e0f6.css",
-    "main.js": "/car-rent-platform/static/js/main.4d60920b.js",
+    "main.js": "/car-rent-platform/static/js/main.902be579.js",
     "static/js/262.0484fa4c.chunk.js": "/car-rent-platform/static/js/262.0484fa4c.chunk.js",
-    "static/js/690.9d815aee.chunk.js": "/car-rent-platform/static/js/690.9d815aee.chunk.js",
+    "static/js/690.1eeb9945.chunk.js": "/car-rent-platform/static/js/690.1eeb9945.chunk.js",
     "static/js/421.923701e5.chunk.js": "/car-rent-platform/static/js/421.923701e5.chunk.js",
     "static/js/719.2df3d3f0.chunk.js": "/car-rent-platform/static/js/719.2df3d3f0.chunk.js",
-    "static/js/828.bf7a9cf7.chunk.js": "/car-rent-platform/static/js/828.bf7a9cf7.chunk.js",
+    "static/js/828.f8385a75.chunk.js": "/car-rent-platform/static/js/828.f8385a75.chunk.js",
     "static/media/BG.jpg": "/car-rent-platform/static/media/BG.c03119217b64a1bca866.jpg",
     "static/media/404.jpg": "/car-rent-platform/static/media/404.a8a18435dd776e44b194.jpg",
     "static/media/header-icon.svg": "/car-rent-platform/static/media/header-icon.710d2fbc961cc3dfaaff39ea416fe907.svg",
@@ -34,15 +34,15 @@
     "index.html": "/car-rent-platform/index.html",
     "static/media/x.svg": "/car-rent-platform/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
     "main.c741e0f6.css.map": "/car-rent-platform/static/css/main.c741e0f6.css.map",
-    "main.4d60920b.js.map": "/car-rent-platform/static/js/main.4d60920b.js.map",
+    "main.902be579.js.map": "/car-rent-platform/static/js/main.902be579.js.map",
     "262.0484fa4c.chunk.js.map": "/car-rent-platform/static/js/262.0484fa4c.chunk.js.map",
-    "690.9d815aee.chunk.js.map": "/car-rent-platform/static/js/690.9d815aee.chunk.js.map",
+    "690.1eeb9945.chunk.js.map": "/car-rent-platform/static/js/690.1eeb9945.chunk.js.map",
     "421.923701e5.chunk.js.map": "/car-rent-platform/static/js/421.923701e5.chunk.js.map",
     "719.2df3d3f0.chunk.js.map": "/car-rent-platform/static/js/719.2df3d3f0.chunk.js.map",
-    "828.bf7a9cf7.chunk.js.map": "/car-rent-platform/static/js/828.bf7a9cf7.chunk.js.map"
+    "828.f8385a75.chunk.js.map": "/car-rent-platform/static/js/828.f8385a75.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c741e0f6.css",
-    "static/js/main.4d60920b.js"
+    "static/js/main.902be579.js"
   ]
 }
