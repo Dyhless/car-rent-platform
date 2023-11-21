@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { ToastContainer, toast, Slide } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 import LoadMoreBtn from "../../components/Buttons/LoadMoreBtn/LoadMoreBtn";
+import { AdvertsList } from "./Catalog.styled";
 import AdvertItem from "../../components/AdvertItem/AdvertItem";
-import { AdvertsList, WrapperFilter } from "./Catalog.styled";
 import Filter from "../../components/Filter/Filter";
+import { NotFound } from "../../components/NotFound/NotFound";
+import { useSelector, useDispatch } from "react-redux";
+import { setFilter } from "../../redux/adverts/filterSlice";
 import {
   useGetAdvertsQuery,
   useGetAllAdvertsQuery,
 } from "../../redux/adverts/advertsSlice";
-import {
-  setMake,
-  setFilteredPrices,
-  setMinMileage,
-  setMaxMileage,
-} from "../../redux/adverts/filterSlice";
+import { getFilter } from "../../redux/adverts/Selectors";
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
+
   const {
     data: adverts,
     error,
     isLoading,
     isFetching,
   } = useGetAdvertsQuery(page);
+
+  if (error) {
+    console.error("Error fetching adverts:", error);
+  }
+
   const { data: allAdverts } = useGetAllAdvertsQuery();
 
-  const filters = useSelector((state) => state.filter);
-  const [filteredAdverts, setFilteredAdverts] = useState(null);
-  const [isFiltering, setIsFiltering] = useState(false);
+  const filter = useSelector(getFilter);
+
+  const itemsPerPage = 12;
 
   useEffect(() => {
     if (page) {
@@ -37,41 +41,52 @@ const Catalog = () => {
     }
   }, [page]);
 
-  const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
+  const filteredCars =
+    (allAdverts || []).filter((advert) => {
+      const makeCondition =
+        !filter ||
+        !filter.selectedMake ||
+        advert.make === filter.selectedMake.value;
 
-  useEffect(() => {
-    if (isFiltering && filters && allAdverts) {
-      const applyFilters = () => {
-        const filteredAdverts = allAdverts.filter((advert) => {
-          if (filters.make && advert.make !== filters.make.value) {
-            return false;
-          }
-          if (
-            filters.filteredPrices.length > 0 &&
-            !filters.filteredPrices.some(
-              (priceObj) =>
-                priceObj.value === advert.rentalPrice.replace("$", "")
-            )
-          ) {
-            return false;
-          }
-          if (filters.minMileage && advert.mileage < filters.minMileage) {
-            return false;
-          }
-          if (filters.maxMileage && advert.mileage > filters.maxMileage) {
-            return false;
-          }
-          return true;
-        });
+      const priceCondition =
+        !filter.rentalPrice ||
+        (parseFloat(advert.rentalPrice.replace("$", "")) >=
+          parseFloat(filter.rentalPrice) &&
+          parseFloat(advert.rentalPrice.replace("$", "")) <
+            parseFloat(filter.rentalPrice) + 10);
 
-        setFilteredAdverts(filteredAdverts.length > 0 ? filteredAdverts : null);
-      };
+      return makeCondition && priceCondition;
+    }) || [];
 
-      applyFilters();
-    }
-  }, [filters, allAdverts, isFiltering]);
+  const totalFilteredCars = filteredCars.length;
+
+  const slicedFilteredCars = filteredCars.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <NotFound />;
+  }
+
+  if (!slicedFilteredCars || slicedFilteredCars.length === 0) {
+    toast.error(`No cars found`, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1500,
+    });
+  }
+
+  const hasMoreCars = adverts ? adverts.length > 0 : false;
+  const isLastPage =
+    !isFetching && (!hasMoreCars || slicedFilteredCars.length < itemsPerPage);
+  const showLoadMoreButton =
+    filter.selectedMake || filter.rentalPrice
+      ? totalFilteredCars > page * itemsPerPage
+      : hasMoreCars;
 
   const makes = allAdverts
     ? [...new Set(allAdverts.map((advert) => advert.make))]
@@ -79,62 +94,49 @@ const Catalog = () => {
   const prices = allAdverts
     ? [
         ...new Set(
-          allAdverts.map((advert) => advert.rentalPrice.replace("$", ""))
+          allAdverts.map((advert) =>
+            parseFloat(advert.rentalPrice.replace("$", ""))
+          )
         ),
       ]
     : [];
-  const mileage = allAdverts
-    ? [...new Set(allAdverts.map((advert) => advert.mileage))]
-    : [];
-  const minMileage = Math.min(...mileage);
-  const maxMileage = Math.max(...mileage);
+
+  const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   return (
     <>
-      {error && <p>Ooops... something went wrong</p>}
+      {error && <NotFound />}{" "}
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          <WrapperFilter>
+          <div>
+            <ToastContainer transition={Slide} />
             <Filter
               makes={makes}
               prices={prices}
-              minMileage={minMileage}
-              maxMileage={maxMileage}
               onFilterChange={(newFilters) => {
-                dispatch(setMake(newFilters.make));
-                dispatch(setFilteredPrices(newFilters.filteredPrices));
-                dispatch(setMinMileage(newFilters.minMileage));
-                dispatch(setMaxMileage(newFilters.maxMileage));
-                setIsFiltering(true);
+                setPage(1);
+                dispatch(setFilter(newFilters));
               }}
-              filters={filters}
+              filter={filter}
             />
-          </WrapperFilter>
-          <AdvertsList>
-            {isFiltering ? (
-              filteredAdverts !== null && filteredAdverts.length > 0 ? (
-                filteredAdverts.map((advert) => (
-                  <AdvertItem key={advert.id} advert={advert} />
-                ))
-              ) : (
-                <div>No matches found based on the chosen criteria.</div>
-              )
-            ) : (
-              adverts
-                .slice(0, 12)
-                .map((advert) => <AdvertItem key={advert.id} advert={advert} />)
+            <AdvertsList>
+              {slicedFilteredCars.map((advert) => (
+                <AdvertItem key={advert.id} advert={advert} />
+              ))}
+            </AdvertsList>
+            {isFetching && <Loader />}
+            {showLoadMoreButton && !isLastPage && (
+              <LoadMoreBtn
+                onClick={handleLoadMore}
+                disabled={isFetching}
+                text="Load more"
+              />
             )}
-          </AdvertsList>
-          {isFetching && <Loader />}
-          {adverts.length > 0 && !isFetching && (
-            <LoadMoreBtn
-              onClick={handleLoadMore}
-              disabled={isFetching}
-              text="Load more"
-            />
-          )}
+          </div>
         </>
       )}
     </>

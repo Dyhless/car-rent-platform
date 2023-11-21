@@ -4,6 +4,7 @@ import AdvertItem from "../../components/AdvertItem/AdvertItem";
 import { getFavorites } from "../../redux/adverts/Selectors";
 import { removeFavorite } from "../../redux/adverts/favoritesSlice";
 import { FavoritesList } from "./Favorites.styled";
+import { NotFound } from "../../components/NotFound/NotFound";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Favorites = () => {
           ))}
         </FavoritesList>
       ) : (
-        <p>NO FAVORITES</p>
+        <NotFound />
       )}
     </>
   );

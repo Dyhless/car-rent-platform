@@ -1,32 +1,35 @@
-import Select from "react-select";
-import {
-  Container,
-  Form,
-  InputContainer,
-  InputLeft,
-  InputRight,
-  Label,
-  SelectContainer,
-  SpanLeft,
-  SpanRight,
-} from "./Filter.styled";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
+import { selectMake } from "../../redux/adverts/filterSlice";
+import { getSelectedMake } from "../../redux/adverts/Selectors";
 import SearchBtn from "../Buttons/SearchBtn/SearchBtn";
 
-export default function Filter({ makes, prices, onFilterChange }) {
-  const [selectedMake, setSelectedMake] = useState("");
+import {
+  CarMileageWrap,
+  InputFrom,
+  InputTo,
+  InputWrap,
+  Label,
+  SelectWrapper,
+  SpanFrom,
+  SpanTo,
+  Wrapper,
+} from "./Filter.styled";
+
+const Filter = ({ makes, prices, onFilterChange }) => {
+  const dispatch = useDispatch();
+  const selectedMake = useSelector(getSelectedMake);
+
   const [selectedPriceStep, setSelectedPriceStep] = useState(null);
   const [selectedPriceLabel, setSelectedPriceLabel] = useState("");
-  const [minValue, setMinValue] = useState("");
-  const [maxValue, setMaxValue] = useState("");
 
   const makeOptions = makes.map((make) => ({ value: make, label: make }));
-  console.log(makeOptions);
 
-  const priceRangeOptions = [];
+  const makePriceOptions = [];
+
   for (let i = 30; i <= 500; i += 10) {
-    priceRangeOptions.push({ value: i, label: `${i}` });
+    makePriceOptions.push({ value: i, label: `${i}` });
   }
 
   const handlePriceStepChange = (selectedOption) => {
@@ -34,94 +37,75 @@ export default function Filter({ makes, prices, onFilterChange }) {
     setSelectedPriceLabel(selectedOption.label);
   };
 
-  const filteredPrices = prices.filter((price) => price <= selectedPriceStep);
-
-  const formatMileage = (value) => {
-    const cleanedValue = value.toString().replace(/,/g, "");
-    const formattedValue = cleanedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return formattedValue;
-  };
-
-  const handleMinInputChange = (e) => {
-    setMinValue(e.target.value);
-  };
-
-  const handleMaxInputChange = (e) => {
-    setMaxValue(e.target.value);
-  };
-
   const handleFilterClick = () => {
-    if (
-      parseInt(minValue.replace(/,/g, ""), 10) >
-      parseInt(maxValue.replace(/,/g, ""), 10)
-    ) {
-      toast.error("The maximum mileage must exceed the minimum mileage.");
-      return;
-    }
-
     const newFilters = {
       make: selectedMake,
-      filteredPrices: filteredPrices.map((price) => ({
-        value: price,
-        label: `${price}`,
-      })),
-      minMileage: parseInt(minValue.replace(/,/g, ""), 10),
-      maxMileage: parseInt(maxValue.replace(/,/g, ""), 10),
+      rentalPrice: selectedPriceStep,
     };
 
     onFilterChange(newFilters);
   };
 
+  const handleResetClick = () => {
+    const newFilters = {
+      make: null,
+      rentalPrice: null,
+    };
+
+    setSelectedPriceStep(null);
+    setSelectedPriceLabel("");
+
+    dispatch(selectMake(null));
+    onFilterChange(newFilters);
+  };
+
   return (
-    <Container>
-      <SelectContainer>
-        <Label htmlFor="nameSelect">Car brand</Label>
+    <Wrapper>
+      <SelectWrapper>
+        <Label htmlFor="selectTitle">Car brand</Label>
         <Select
-          id="nameSelect"
+          inputId="selectTitle"
           placeholder="Enter the text"
           value={selectedMake}
           isClearable={true}
-          onChange={(selectedOption) =>
-            setSelectedMake(selectedOption ? selectedOption.value : "")
-          }
+          onChange={(selectedOption) => dispatch(selectMake(selectedOption))}
           options={makeOptions}
           styles={{
             control: (styles) => ({
               ...styles,
               width: "224px",
               height: "48px",
-              borderColor: "rgba(18, 20, 23, 0.2)",
               border: "none",
               borderRadius: "14px",
               padding: "8px",
-              fontSize: "16px",
-              fontFamily: "Manrope",
-              backgroundColor: "rgba(247, 247, 251, 1)",
+              fontSize: "18px",
+              backgroundColor: "#f7f7fb",
               appearance: "none",
+              fontWeight: 500,
+              lineHeight: 1.11,
             }),
             option: (styles, { isFocused }) => {
               return {
                 ...styles,
-                color: isFocused ? "black" : "rgba(18, 20, 23, 0.2)",
-                fontFamily: "Manrope",
+                color: isFocused ? "#121417" : "rgba(18, 20, 23, 0.2)",
               };
             },
 
             placeholder: (styles) => ({
               ...styles,
-              color: "rgba(18, 20, 23, 1)",
+              color: "#121417",
             }),
           }}
           components={{
             IndicatorSeparator: () => null,
           }}
         />
-      </SelectContainer>
+      </SelectWrapper>
 
-      <SelectContainer>
-        <Label htmlFor="priceSelect">Price / 1 hour</Label>
+      <SelectWrapper>
+        <Label htmlFor="priceSelect">Price/ 1 hour</Label>
         <Select
-          id="priceSelect"
+          inputId="priceSelect"
           placeholder="To $"
           value={
             selectedPriceStep
@@ -129,57 +113,62 @@ export default function Filter({ makes, prices, onFilterChange }) {
               : null
           }
           onChange={handlePriceStepChange}
-          options={priceRangeOptions}
+          options={makePriceOptions}
           styles={{
             control: (styles) => ({
               ...styles,
-              width: "125",
+              width: "125px",
               height: "48px",
-              borderColor: "rgba(18, 20, 23, 0.2)",
               border: "none",
               borderRadius: "14px",
               padding: "8px",
-              fontSize: "16px",
-              fontFamily: "Manrope",
-              backgroundColor: "rgba(247, 247, 251, 1)",
+              fontSize: "18px",
+              backgroundColor: "#f7f7fb",
               appearance: "none",
+              fontWeight: 500,
+              lineHeight: 1.11,
             }),
             option: (styles, { isFocused }) => {
               return {
                 ...styles,
-                color: isFocused ? "black" : "rgba(18, 20, 23, 0.2)",
-                fontFamily: "Manrope",
+                color: isFocused ? "#121417" : "rgba(18, 20, 23, 0.20)",
               };
             },
 
             placeholder: (styles) => ({
               ...styles,
-              color: "rgba(18, 20, 23, 1)",
+              color: "#121417",
             }),
           }}
           components={{
             IndicatorSeparator: () => null,
           }}
         />
-      </SelectContainer>
-      <Form>
-        <Label>Car mileage / km</Label>
-        <InputContainer>
-          <InputLeft
-            type="text"
-            value={formatMileage(minValue)}
-            onChange={handleMinInputChange}
-          />
-          <SpanLeft>From</SpanLeft>
-          <InputRight
-            type="text"
-            value={formatMileage(maxValue)}
-            onChange={handleMaxInputChange}
-          />
-          <SpanRight>To</SpanRight>
-        </InputContainer>
-      </Form>
-      <SearchBtn text="Search" onClick={handleFilterClick} width="135px" />
-    </Container>
+      </SelectWrapper>
+
+      <CarMileageWrap>
+        <Label htmlFor="mileage">Car mileage / km</Label>
+        <InputWrap>
+          <InputFrom type="text" id="mileage" />
+          <SpanFrom>From</SpanFrom>
+          <InputTo type="text" />
+          <SpanTo>To</SpanTo>
+        </InputWrap>
+      </CarMileageWrap>
+      <SearchBtn
+        text="Search"
+        width="136px"
+        height="48px"
+        onClick={handleFilterClick}
+      />
+      <SearchBtn
+        text="Reset"
+        width="80px"
+        height="48px"
+        onClick={handleResetClick}
+      />
+    </Wrapper>
   );
-}
+};
+
+export default Filter;

@@ -1,17 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 0 auto;
-  width: 500px;
-`;
-export const NoCar = styled.img`
-  display: block;
-
-  margin: 0 auto;
-`;
-export const NotInlist = styled.h2`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin: 40px auto;
+  justify-content: center;
+  height: 100vh;
+`;
+
+export const NoCar = styled.img`
+  display: absolute;
+  width: 80%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+`;
+
+export const NotInlist = styled.h2`
+  margin: 20px 0;
 `;

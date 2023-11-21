@@ -12,17 +12,19 @@ import {
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import { favoriteReducer } from "../redux/adverts/favoritesSlice";
+import { filterReducer } from "./adverts/filterSlice";
 
 const reducers = combineReducers({
   [advertsApi.reducerPath]: advertsApi.reducer,
   favorites: favoriteReducer,
+  filter: filterReducer,
 });
 
 const persistConfig = {
   key: "favorites",
   version: 1,
   storage,
-  whitelist: ["favorites"],
+  whitelist: ["favorites", "filter"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
