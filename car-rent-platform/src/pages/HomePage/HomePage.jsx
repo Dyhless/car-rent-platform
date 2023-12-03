@@ -1,6 +1,6 @@
 import { Text, Overlay, BgImg } from "./HomePage.styled";
 import BG from "../../assets/images/BG.jpg";
-import RentalCarBtn from "../../components/Buttons/RentalСarBtn/RentalСarBtn"; // Correct the import name
+import RentalCarBtn from "../../components/Buttons/RentalСarBtn/RentalСarBtn";
 
 const HomePage = () => {
   return (
