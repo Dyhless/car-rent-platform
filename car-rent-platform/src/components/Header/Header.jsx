@@ -4,8 +4,8 @@ import LogoHeader from "./LogoHeader";
 const Header = () => {
   return (
     <HeaderWrap>
+      <LogoHeader />
       <List>
-        <LogoHeader />
         <li>
           <Link to="/">Home</Link>
         </li>

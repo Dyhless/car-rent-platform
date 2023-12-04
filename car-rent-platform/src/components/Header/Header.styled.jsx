@@ -4,14 +4,15 @@ import { NavLink } from "react-router-dom";
 const transition = "300ms cubic-bezier(0.46, 0.03, 0.52, 0.96)";
 
 export const HeaderWrap = styled.header`
+  display: flex;
   position: fixed;
+
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
-  display: flex;
   flex-direction: column;
-  align-items: left;
+
   padding-left: 100px;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
@@ -28,25 +29,26 @@ export const HeaderWrap = styled.header`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+    justify-content: space-around;
   }
 `;
 
 export const List = styled.ul`
-  list-style-type: none;
   display: flex;
+  flex-direction: column;
+  list-style-type: none;
   margin: 0;
   padding: 0;
   height: auto;
-  flex-direction: column;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
     gap: 10px;
+    flex-direction: row;
   }
 
   @media screen and (min-width: 1440px) {
-    flex-direction: row;
     gap: 10px;
+    flex-direction: row;
   }
 `;
 
