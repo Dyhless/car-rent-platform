@@ -29,7 +29,6 @@ export const HeaderWrap = styled.header`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
-    justify-content: space-around;
   }
 `;
 
@@ -53,7 +52,7 @@ export const List = styled.ul`
 `;
 
 export const Link = styled(NavLink)`
-  color: var(--header-text-color);
+  color: var(--light-blue-color);
   display: inline-block;
   text-decoration: none;
   font-weight: 600;

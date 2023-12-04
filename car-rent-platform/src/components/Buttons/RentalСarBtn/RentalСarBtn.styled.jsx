@@ -22,7 +22,7 @@ export const RentalСar = styled.button`
   font-size: 24px;
   font-weight: 600;
   cursor: pointer;
-  background-color: #fa8531;
+  background-color: var(--light-blue-color);
   color: #fff;
   animation: ${gradientAnimation} 2s linear infinite alternate-reverse;
   transform: translateX(-50%);
@@ -31,14 +31,14 @@ export const RentalСar = styled.button`
 
   &:hover,
   &:focus {
-    outline: none;
     animation-play-state: paused;
-    background: linear-gradient(45deg, #ffc49a, #fa8531, #fa3131);
+    background: linear-gradient(
+      45deg,
+      var(--light-blue-color),
+      var(--dark-blue-color),
+      var(--violet-color)
+    );
     background-size: 400% 400%;
     animation: ${gradientAnimation} 2s ease infinite;
-
-    &:focus {
-      animation: ${gradientAnimation} 3s ease infinite;
-    }
   }
 `;

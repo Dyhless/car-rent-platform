@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(5, 1fr);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     width: 500px;
     justify-content: left;
   }

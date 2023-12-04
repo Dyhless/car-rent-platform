@@ -2,22 +2,19 @@ import styled, { keyframes } from "styled-components";
 
 const fireAnimation = keyframes`
   0% {
-    color: #FFFFFF;
+    color: #68BCFF;
   }
   25% {
-    color: #FFE0B2;
-  }
-  35% {
-    color: #FFB800;
+    color: #5C9CFB;
   }
   50% {
-    color: #FF9029;
+    color: #4981F7;
   }
   75% {
-    color: #FF7B00;
+    color: #305DF6;
   }
   100% {
-    color: #FF3333;
+    color: #353BE6;
   }
 `;
 
@@ -29,7 +26,7 @@ export const Text = styled.p`
   padding-top: 180px;
   position: relative;
   padding-left: 100px;
-  animation: ${fireAnimation} 5s infinite alternate;
+  animation: ${fireAnimation} 2s infinite alternate;
 
   @media screen and (min-width: 375px) {
     padding-left: 100px;
