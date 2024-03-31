@@ -31,7 +31,7 @@ This is a React application for a car rental company based in Ukraine. The appli
 ## Backend (Mockapi)
 
 - Created a personal backend for development using the UI service [Mockapi](https://mockapi.io/).
-- Created an "adverts" resource with fields: id, year, make, model, type, img, description, fuelConsumption, engineSize, accessories, functionalities, rentalPrice, rentalCompany, address, rentalConditions, mileage.
+- Created an "adverts" resource with fields: `id, year, make, model, type, img, description, fuelConsumption, engineSize, accessories, functionalities, rentalPrice, rentalCompany, address, rentalConditions, mileage`.
 - Used the [adverts.json](https://drive.google.com/file/d/1sDtZQX4awbRiqa5mSagngqKBZeMMRUMO/view) file to populate the collection.
 
 ## Additional Features
